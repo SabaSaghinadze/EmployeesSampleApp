@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EmployeesSampleApp
@@ -40,7 +32,7 @@ namespace EmployeesSampleApp
 
         private void dataGridViewEmployees_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
                 int employeeId = (int)dataGridViewEmployees.Rows[e.RowIndex].Cells[0].Value;
 
@@ -96,8 +88,8 @@ namespace EmployeesSampleApp
             AddUpdateAndDeleteColumns();
 
             var employees = LoadEmployees();
-            
-            if(employees != null)
+
+            if (employees != null)
             {
                 txtItemsPerPage.Text = employees.Rows.Count.ToString();
                 txtPageNumber.Text = 1.ToString();
@@ -118,7 +110,7 @@ namespace EmployeesSampleApp
         {
             var employees = Service.Search(firstName, lastName, role, salaryFrom, salaryPriorTo);
 
-            if(employees != null)
+            if (employees != null)
             {
                 dataGridViewEmployees.AutoGenerateColumns = false;
                 dataGridViewEmployees.DataSource = employees;

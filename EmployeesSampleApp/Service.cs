@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace EmployeesSampleApp
 {
@@ -73,7 +67,7 @@ namespace EmployeesSampleApp
             }
         }
 
-        public static DataTable Search(string firstName=null, string lastName=null, string role=null, decimal? salaryFrom=null, decimal? salaryTo=null)
+        public static DataTable Search(string firstName = null, string lastName = null, string role = null, decimal? salaryFrom = null, decimal? salaryTo = null)
         {
             try
             {
@@ -126,7 +120,7 @@ namespace EmployeesSampleApp
             {
                 return 0;
             }
-            
+
         }
 
         public static int CreateOrUpdateEmployee(Employee employee)
@@ -159,7 +153,7 @@ namespace EmployeesSampleApp
             {
                 return 0;
             }
-            
+
         }
     }
 }
