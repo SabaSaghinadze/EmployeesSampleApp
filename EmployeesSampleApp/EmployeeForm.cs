@@ -26,6 +26,8 @@ namespace EmployeesSampleApp
             int employeeId = (int)dataGridViewEmployees.Rows[e.RowIndex].Cells[0].Value;
 
             OpenUpdateForm(e, employeeId);
+
+            LoadData();
         }
         private void dataGridViewEmployees_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {

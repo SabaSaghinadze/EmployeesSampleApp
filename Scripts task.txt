@@ -1,0 +1,21 @@
+1. SELECT Role, MAX(Salary) 
+FROM Employees
+GROUP BY Role
+2. SELECT a.Role, a.Salary, a.FirstName, a.LastName
+FROM Employees a
+INNER JOIN(
+	SELECT Role, Max(Salary) Salary
+	FROM Employees
+	GROUP BY Role
+) b ON a.Role = b.Role AND a.Salary = b.Salary
+3. SELECT Role, Sum(Salary) Salary
+FROM Employees
+WHERE Salary BETWEEN 300 AND 600
+GROUP BY Role
+4. SELECT p.PriceListId, coalesce(plp.Count, 0) as DublicatesCount
+FROM PriceList p
+LEFT JOIN (
+    SELECT PriceListId, count(*) AS Count 
+    FROM PriceListProducts 
+    GROUP by PriceListId
+) plp ON (p.PriceListId = plp.PriceListId)
